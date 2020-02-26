@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Visitas</th>
       <th>Nombre</th>
       <th>Raza</th>
       <th>Nacimiento</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @pets.each do |pet| %>
       <tr>
+        <td><%= pet.petHistories.count %></td>
         <td><%= pet.nombre %></td>
         <td><%= pet.raza %></td>
         <td><%= pet.nacimiento %></td>

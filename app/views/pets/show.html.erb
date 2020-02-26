@@ -1,19 +1,61 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @pet.nombre %>
-</p>
+<h1>Ficha mascota: <%= @pet.nombre%></h1>
 
-<p>
-  <strong>Raza:</strong>
-  <%= @pet.raza %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Fecha de visita</th>
+      <th>Peso</th>
+      <th>Altura</th>
+      <th>Notas</th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Nacimiento:</strong>
-  <%= @pet.nacimiento %>
-</p>
 
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
+  <tbody>
+    <% @pet.petHistories.each do |h| %>
+      <tr>
+        <td><%= h.id %></td> 
+        <td><%= h.created_at %></td>
+        <td><%= h.peso %> Kg</td>
+        <td><%= h.altura %> cms</td>
+        <td><%= h.descripcion %></td>
+       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Peso Máximo</th>
+      <th>Altura Máxima</th>
+      <th>Peso Promedio</th>
+      <th>Altura Promedio</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr>
+      <td><%= @pet.petHistories.maximum(:peso) %></td>
+      <td><%= @pet.petHistories.maximum(:altura) %></td>
+      <td><%= @pet.petHistories.average(:peso) %></td>
+      <td><%= @pet.petHistories.average(:altura) %></td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+<br><br>
+
 <%= link_to 'Back', pets_path %>

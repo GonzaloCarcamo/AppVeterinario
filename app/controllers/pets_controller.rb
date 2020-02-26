@@ -10,6 +10,9 @@ class PetsController < ApplicationController
   # GET /pets/1
   # GET /pets/1.json
   def show
+    
+    @pet_history = PetHistory.pluck(:id)
+
   end
 
   # GET /pets/new
