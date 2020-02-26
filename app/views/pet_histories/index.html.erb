@@ -5,10 +5,10 @@
 <table>
   <thead>
     <tr>
+      <th>ID Mascota</th>
       <th>Peso</th>
       <th>Altura</th>
       <th>Descripcion</th>
-      <th>Pet</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +16,10 @@
   <tbody>
     <% @pet_histories.each do |pet_history| %>
       <tr>
+        <td><%= pet_history.pet_id %></td>
         <td><%= pet_history.peso %></td>
         <td><%= pet_history.altura %></td>
         <td><%= pet_history.descripcion %></td>
-        <td><%= pet_history.pet %></td>
         <td><%= link_to 'Show', pet_history %></td>
         <td><%= link_to 'Edit', edit_pet_history_path(pet_history) %></td>
         <td><%= link_to 'Destroy', pet_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>

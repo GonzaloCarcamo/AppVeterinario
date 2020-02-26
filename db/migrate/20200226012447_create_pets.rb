@@ -4,6 +4,7 @@ class CreatePets < ActiveRecord::Migration[5.2]
       t.string :nombre
       t.string :raza
       t.string :nacimiento
+      t.references :client
 
       t.timestamps
     end
